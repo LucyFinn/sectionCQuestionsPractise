@@ -1,0 +1,36 @@
+#Arcade Score Challenge - Part A 
+import random
+
+scores = []
+
+def generate_score():
+    score = random.randint(1,20) # (i)
+    return score
+    
+
+def calculate_total(score_list): #(ii)
+    for i in scores:
+
+        
+
+def calculate_bonus(score):
+
+
+    pass
+
+
+def display_scores(score_list):
+
+    pass
+
+
+rounds = 5
+for i in range(rounds):
+    new_score = generate_score()
+    scores.append(new_score)
+print("Scores:", scores)
+
+#(ii) - calculating the total sum of the list
+length = len(scores)
+calculate_total(new_score)
+print("Total score:")
