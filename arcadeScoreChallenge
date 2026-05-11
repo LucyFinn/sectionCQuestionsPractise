@@ -2,35 +2,91 @@
 import random
 
 scores = []
-
+#(i) - creating a random list 
 def generate_score():
-    score = random.randint(1,20) # (i)
+    score = random.randint(1,20)
     return score
+
+#(ii) - calculating the total sum of the items in the list
+def calculate_total(score_list):
+    total = 0
+
+    for score in score_list:
+        total = total + score
+        
+    return total
+        
+#(iv) - calculating whether or not the score gets a bonus
+def calculate_bonus(score):
+    bonus = 0
+    if score == 20:
+        bonus = score**2
+    elif score % 2 == 0:
+        bonus = score*2
+    else:
+        bonus = score + 5
+        
+    return bonus
     
 
-def calculate_total(score_list): #(ii)
-    for i in scores:
-
-        
-
-def calculate_bonus(score):
-
-
-    pass
-
-
+#(iii) - calculating the average of the items in the list 
 def display_scores(score_list):
+    average = total_score/rounds
+    return average
 
-    pass
 
-
+#(i) - creating a random list and taking 5 random numbers and displaying them 
 rounds = 5
+
 for i in range(rounds):
     new_score = generate_score()
     scores.append(new_score)
 print("Scores:", scores)
 
-#(ii) - calculating the total sum of the list
-length = len(scores)
-calculate_total(new_score)
-print("Total score:")
+#(ii) - calculating the total sum of the items in the list
+total_score = calculate_total(scores)
+print("Total score:", total_score)
+
+#(iii) - calculating the average of the items in the list
+mean = display_scores(scores)
+roundedMean = total_score//rounds
+print("Average score:", mean)
+print("Rounded down average:", roundedMean)
+
+#(iv) - calculating whether or not the score gets a bonus
+for score in scores:
+    bonus = calculate_bonus(score)
+    print("Score:", score, "Bonus:", bonus)
+    
+#(v) - finding a target value within a list
+target = int(input("Enter a target value between 1 - 20: "))
+
+
+
+#Part B
+#finding and showing the highest number in the list
+def highest_score():
+    sortedList = myScores.sort()
+    bigNum = myScores[-1]
+    return bigNum
+
+#Create a while loop that allows the user to enter values until the enter 0
+myScores = []
+score = int(input("Enter score, or 0 to stop: "))
+while score != 0:
+    myScores.append(score)
+    score = int(input("Enter score, or 0 to stop: "))
+print()
+print("Scores entered:", myScores)
+
+#finding and showing the highest number in the list
+highestNum = highest_score()
+print("Highest score:", highestNum)
+
+#Displays whether the highest score is: "Execellent" , "Good" , "Needs practise"
+if highestNum >= 15:
+    print("Excellent")
+elif highestNum < 15 and highestNum >= 10:
+    print("Good")
+else:
+    print("Needs practise")
