@@ -5,26 +5,35 @@ import random
 
 energy_values = []
 
+#(i) - displaying random energy values
 def generate_energy():
-   energy = random.randint()
-   pass
+   energy = random.randint(1, 10)
+   return energy 
 
-
+#(ii) - recursive function to figure out the total of the list
 def recursive_total(values, index):
-   # Add code here
-   pass
+    if index == len(energy_values):
+        return 0
+    else:
+        return values[index] + recursive_total(values, index + 1)
 
-
+#(iv) - Classifying the energy 
 def classify_energy(total):
-   # Add code here
-   pass
+    if total_energy >= 45:
+        return "Battery critical"
+    elif total_energy < 45 and total_energy >= 33:
+        return "Battery low"
+    else:
+        return "Battery safe"
+    
 
-
+#(iii) - finding the average of the list
 def display_values(values):
-   # Add code here
-   pass
+    average = total_energy/moves
+    return average
+    
 
-
+#(i) - displaying random energy values
 moves = 6
 
 for i in range(moves):
@@ -33,3 +42,44 @@ for i in range(moves):
 
 print("Energy values:", energy_values)
 
+#(ii) - calling up the recursive function showing the total of the list
+total_energy = recursive_total(energy_values, 0)
+print("Total energy used:", total_energy)
+
+#(iii) - finding the average of the list + the rounded down average
+average_notRounded = display_values(energy_values)
+print("Average energy:", average_notRounded)
+average_rounded = total_energy // moves
+print("Rounded down average:", average_rounded)
+
+#(iv) - Classifying the energy
+energy_class = classify_energy(total_energy)
+print(energy_class)
+
+#(v) - finding special energy values
+for value in energy_values:
+    if value == 10:
+        print("Maximum energy use")
+    elif value % 2 == 0:
+        print(value, "doubled is", value*2)   
+    else:
+        print(value, "squared is", value*value)
+        
+#Part B
+#A second robot is tested. The user enters energy values one at a time. The user enters -1 to stop
+robot_values = []
+value = int(input("Enter energy value, or -1 to stop: "))
+
+def count_even(values, index):
+    countEven = 0
+    countOdd = 0
+    for value in robot_values:
+        if value % 2 == 0:
+            countEven += 1
+        else:
+            countOdd += 1
+
+while value != -1:
+    robot_values.append(value)
+    value = int(input("Enter energy value, or -1 to stop: "))
+print("Energy values entered:", robot_values)
