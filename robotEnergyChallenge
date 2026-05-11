@@ -1,0 +1,35 @@
+#Robot Energy Challenge
+#A robot moves through a maze. Each move uses up energy. The robot’s energy values are stored in a list.
+
+import random
+
+energy_values = []
+
+def generate_energy():
+   energy = random.randint()
+   pass
+
+
+def recursive_total(values, index):
+   # Add code here
+   pass
+
+
+def classify_energy(total):
+   # Add code here
+   pass
+
+
+def display_values(values):
+   # Add code here
+   pass
+
+
+moves = 6
+
+for i in range(moves):
+   new_energy = generate_energy()
+   energy_values.append(new_energy)
+
+print("Energy values:", energy_values)
+
